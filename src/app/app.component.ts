@@ -10,7 +10,15 @@ export class AppComponent implements OnInit {
   year: number;
   month: number;
   date: number;
+  day: number;
+  dateTime = {
+    year: this.year,
+    month: this.month,
+    date: this.date,
+    day: this.day
+  };
   monthBox = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  weekBox = ['日', '一', '二', '三', '四', '五', '六'];
   yearBoxStatus = false;
   monthBoxStatus = false;
 
@@ -18,6 +26,14 @@ export class AppComponent implements OnInit {
     this.dayTime = new Date();
     this.year = this.dayTime.getFullYear();
     this.month = this.dayTime.getMonth() + 1;
+    this.date = this.dayTime.getDate();
+    this.day = this.dayTime.getDay();
+    this.dateTime = {
+      year: this.year,
+      month: this.month,
+      date: this.date,
+      day: this.day
+    };
   }
 
   openYearBox() {
@@ -35,6 +51,12 @@ export class AppComponent implements OnInit {
     this.monthBoxStatus = !this.monthBoxStatus;
     if (e) {
       this.month = e;
+      this.dateTime = {
+        year: this.year,
+        month: this.month,
+        date: this.date,
+        day: this.day
+      };
     }
   }
 }

@@ -1,0 +1,10 @@
+.day-box-item{
+  float: left;
+  width: 14.28%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, .2);
+  color: white;
+  margin-top: 10px;
+}

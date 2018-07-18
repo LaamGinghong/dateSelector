@@ -2,7 +2,13 @@
   <div id="dateSelector-header">
     <span (click)="openYearBox()">{{year}}年</span><span (click)="toggleMonthBox()">{{month}}月</span>
   </div>
+  <div id="dateSelector-week">
+    <ul>
+      <li *ngFor="let item of weekBox" class="dateSelector-week-item">{{item}}</li>
+    </ul>
+  </div>
   <app-month-box [monthBox]="monthBox" *ngIf="monthBoxStatus" (toggleMonthBox)="toggleMonthBox($event)"></app-month-box>
   <app-year-box [year]="year" *ngIf="yearBoxStatus" (toggleYearBox)="toggleYearBox($event)"></app-year-box>
+  <app-day-box [time]="dateTime"></app-day-box>
 </div>
 

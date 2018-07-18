@@ -6,9 +6,6 @@
   top: 0;
   overflow-y: auto;
 }
-ul{
-  list-style: none;
-}
 .month-box-item{
   width: 49.5%;
   height: 100px;
