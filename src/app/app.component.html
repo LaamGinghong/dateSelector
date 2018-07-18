@@ -1,7 +1,8 @@
 <div id="dateSelector">
   <div id="dateSelector-header">
-    <span (click)="openYearBox(year)">{{year}}年</span><span (click)="toggleMonthBox()">{{month}}月</span>
+    <span (click)="openYearBox()">{{year}}年</span><span (click)="toggleMonthBox()">{{month}}月</span>
   </div>
   <app-month-box [monthBox]="monthBox" *ngIf="monthBoxStatus" (toggleMonthBox)="toggleMonthBox($event)"></app-month-box>
+  <app-year-box [year]="year" *ngIf="yearBoxStatus" (toggleYearBox)="toggleYearBox($event)"></app-year-box>
 </div>
 

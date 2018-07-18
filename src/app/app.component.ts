@@ -10,7 +10,6 @@ export class AppComponent implements OnInit {
   year: number;
   month: number;
   date: number;
-  yearBox = [];
   monthBox = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   yearBoxStatus = false;
   monthBoxStatus = false;
@@ -21,17 +20,14 @@ export class AppComponent implements OnInit {
     this.month = this.dayTime.getMonth() + 1;
   }
 
-  openYearBox(year) {
-    this.yearBox.push(year);
-    let thisYear = year;
-    for (let i = 0; i < year - 1970; i++) {
-      thisYear -= 1;
-      this.yearBox.unshift(thisYear);
-    }
-    thisYear = year;
-    for (let i = 0; i < 2070 - year; i++) {
-      thisYear += 1;
-      this.yearBox.push(thisYear);
+  openYearBox() {
+    this.toggleYearBox();
+  }
+
+  toggleYearBox(e?) {
+    this.yearBoxStatus = !this.yearBoxStatus;
+    if (e) {
+      this.year = e;
     }
   }
 
