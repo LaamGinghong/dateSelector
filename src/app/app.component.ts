@@ -44,6 +44,12 @@ export class AppComponent implements OnInit {
     this.yearBoxStatus = !this.yearBoxStatus;
     if (e) {
       this.year = e;
+      this.dateTime = {
+        year: this.year,
+        month: this.month,
+        date: this.date,
+        day: this.day
+      };
     }
   }
 
