@@ -1,2 +1,2 @@
-<app-input-box (dateBoxStatus)="toggleDateBox($event)"></app-input-box>
+<app-input-box (dateBoxStatus)="toggleDateBox($event)" (clearInputBox)="clearInputBox($event)"></app-input-box>
 <app-date-box *ngIf="dateBoxStatus" [selectValue]="{year:year,month:month,date:date}"></app-date-box>

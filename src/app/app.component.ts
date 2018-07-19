@@ -31,4 +31,12 @@ export class AppComponent implements OnInit {
       this.dateBoxStatus = !this.dateBoxStatus;
     }
   }
+
+  clearInputBox(e) {
+    if (e) {
+      this.year = null;
+      this.month = null;
+      this.date = null;
+    }
+  }
 }

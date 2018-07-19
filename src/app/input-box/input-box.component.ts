@@ -9,6 +9,7 @@ import {BroadcastService} from '../broadcast.service';
 export class InputBoxComponent implements OnInit {
   inputValue = '';
   @Output() dateBoxStatus = new EventEmitter<boolean>();
+  @Output() clearInputBox = new EventEmitter<boolean>();
 
   constructor(private broadcastService: BroadcastService) {
   }
@@ -23,5 +24,10 @@ export class InputBoxComponent implements OnInit {
 
   showDateBox() {
     this.dateBoxStatus.emit(true);
+  }
+
+  clearInput() {
+    this.inputValue = '';
+    this.clearInputBox.emit(true);
   }
 }

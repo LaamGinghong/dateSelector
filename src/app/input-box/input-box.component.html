@@ -1,6 +1,6 @@
 <div id="input-box">
   <div>
     <input placeholder="点击选择日期" (focus)="showDateBox()" [(ngModel)]="inputValue">
-    <span>*</span>
+    <span (click)="clearInput()">*</span>
   </div>
 </div>
