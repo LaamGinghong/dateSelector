@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.dayTime = new Date();
     this.year = this.dayTime.getFullYear();
-    this.month = this.dayTime.getMonth() + 1;
+    this.month = this.dayTime.getMonth();
     this.date = this.dayTime.getDate();
     this.day = this.dayTime.getDay();
     this.dateTime = {
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
   toggleMonthBox(e?) {
     this.monthBoxStatus = !this.monthBoxStatus;
     if (e) {
-      this.month = e;
+      this.month = e - 1;
       this.dateTime = {
         year: this.year,
         month: this.month,

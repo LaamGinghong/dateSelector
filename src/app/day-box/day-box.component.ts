@@ -14,9 +14,8 @@ export class DayBoxComponent implements OnInit {
       this.month = month;
       this.date = date;
       this.day = day;
-      // console.log(this.year, this.month, this.date, this.day);
-      this.initMaxMonthDate(this.year, this.month - 1);
-      this.initMinMonthDay(this.year, this.month - 1);
+      this.initMaxMonthDate(this.year, this.month);
+      this.initMinMonthDay(this.year, this.month);
     }
   }
 
@@ -36,7 +35,7 @@ export class DayBoxComponent implements OnInit {
   }
 
   initMaxMonthDate(year, month) {
-    this.maxMonthDate = new Date(year, month, 0).getDate();
+    this.maxMonthDate = new Date(year, month + 1, 0).getDate();
     const today = new Date().toDateString();
     let day = {
       date: 0,
@@ -62,7 +61,6 @@ export class DayBoxComponent implements OnInit {
       this.monthBox.push(day);
     }
     const maxMonthDay = new Date(year, month, this.maxMonthDate).getDay();
-    console.log(maxMonthDay);
     for (let i = 1; i <= 6 - maxMonthDay; i++) {
       this.monthBox.push({date: i, isToday: false, isThisMonth: false});
     }
