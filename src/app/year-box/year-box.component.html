@@ -10,7 +10,8 @@
   </div>
   <ul>
     <li *ngFor="let item of yearBox" class="year-box-item" (click)="changeYear(item)"
-        [style.background-color]="item===this.currentYear?'yellow':''">{{item}}年
+        [style.background-color]="item.isThisTimes?'hotpink':''">
+      <span [style.background-color]="item.year===currentYear?'yellow':''">{{item.year}}年</span>
     </li>
   </ul>
 </div>

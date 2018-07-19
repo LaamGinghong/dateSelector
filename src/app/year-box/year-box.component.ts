@@ -32,22 +32,33 @@ export class YearBoxComponent implements OnInit {
 
   initYearBox(max, min) { // 初始化yearBox
     for (let i = min; i <= max; i++) {
-      this.yearBox.push(i);
+      this.yearBox.push({year: i, isThisTimes: true});
     }
+    this.yearBox.unshift({year: min - 1, isThisTimes: false, isLastTimes: true});
+    this.yearBox.push({year: max + 1, isThisTimes: false, isNextTimes: true});
   }
 
   changeYear(year) { // 点击切换年份
-    this.toggleYearBox.emit(year);
+    if (year.isThisTimes) {
+      this.toggleYearBox.emit(year.year);
+    } else {
+      if (year.isLastTimes) {
+        this.minusYear();
+      }
+      if (year.isNextTimes) {
+        this.addYear();
+      }
+    }
   }
 
-  addYear() { // 往前十年
+  addYear() { // 往后十年
     this.maxYear += 10;
     this.minYear += 10;
     this.yearBox = [];
     this.initYearBox(this.maxYear, this.minYear);
   }
 
-  minusYear() { // 往后十年
+  minusYear() { // 往前十年
     this.maxYear -= 10;
     this.minYear -= 10;
     this.yearBox = [];
