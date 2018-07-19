@@ -6,12 +6,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  dayTime: Date;
+  dayTime: Date; // 今天
   year: number;
   month: number;
   date: number;
   day: number;
-  dateTime = {
+  dateTime = {  // 传入day-box
     year: this.year,
     month: this.month,
     date: this.date,
@@ -31,11 +31,7 @@ export class AppComponent implements OnInit {
     this.initDateTime();
   }
 
-  openYearBox() {
-    this.toggleYearBox();
-  }
-
-  toggleYearBox(e?) {
+  toggleYearBox(e?) { // 通过year-box设置年份
     this.yearBoxStatus = !this.yearBoxStatus;
     if (e) {
       this.year = e;
@@ -43,7 +39,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  toggleMonthBox(e?) {
+  toggleMonthBox(e?) { // 通过month-box设置月份
     this.monthBoxStatus = !this.monthBoxStatus;
     if (e) {
       this.month = e - 1;
@@ -51,7 +47,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  changeMonth(e) {
+  changeMonth(e) { // 点击day-box上下月份设置年月
     if (e <= 12 && e) {
       this.month = e - 1;
     }
@@ -66,17 +62,17 @@ export class AppComponent implements OnInit {
     this.initDateTime();
   }
 
-  lastYear() {
+  lastYear() { // 上一年
     this.year--;
     this.initDateTime();
   }
 
-  nextYear() {
+  nextYear() { // 下一年
     this.year++;
     this.initDateTime();
   }
 
-  lastMonth() {
+  lastMonth() { // 上一月
     if (this.month) {
       this.month--;
     } else {
@@ -86,7 +82,7 @@ export class AppComponent implements OnInit {
     this.initDateTime();
   }
 
-  nextMonth() {
+  nextMonth() { // 下一月
     if (this.month < 11) {
       this.month++;
     } else {
@@ -96,7 +92,7 @@ export class AppComponent implements OnInit {
     this.initDateTime();
   }
 
-  initDateTime() {
+  initDateTime() { // 初始化传入day-box的值
     this.dateTime = {
       year: this.year,
       month: this.month,

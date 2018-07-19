@@ -15,7 +15,7 @@ export class MonthBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeMonth(item) {
+  changeMonth(item) { // 点击切换月份
     this.toggleMonthBox.emit(item);
   }
 }

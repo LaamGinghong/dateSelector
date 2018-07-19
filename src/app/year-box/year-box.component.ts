@@ -6,18 +6,17 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./year-box.component.css']
 })
 export class YearBoxComponent implements OnInit {
-  minYear: number;
-  maxYear: number;
-  currentYear: number;
+  minYear: number; // yearBox开头
+  maxYear: number; // yearBox结尾
+  currentYear: number; // 当前年份
   yearBox = [];
 
   @Input() set year(val) {
     if (val) {
       this.currentYear = val;
-      const digits = this.currentYear % 10;
+      const digits = this.currentYear % 10; // 个位
       this.minYear = this.currentYear - digits;
-      let gap = 0;
-      gap = 9 - digits;
+      const gap = 9 - digits;
       this.maxYear = this.currentYear + gap;
       this.initYearBox(this.maxYear, this.minYear);
     }
@@ -31,24 +30,24 @@ export class YearBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  initYearBox(max, min) {
+  initYearBox(max, min) { // 初始化yearBox
     for (let i = min; i <= max; i++) {
       this.yearBox.push(i);
     }
   }
 
-  changeYear(year) {
+  changeYear(year) { // 点击切换年份
     this.toggleYearBox.emit(year);
   }
 
-  addYear() {
+  addYear() { // 往前十年
     this.maxYear += 10;
     this.minYear += 10;
     this.yearBox = [];
     this.initYearBox(this.maxYear, this.minYear);
   }
 
-  minusYear() {
+  minusYear() { // 往后十年
     this.maxYear -= 10;
     this.minYear -= 10;
     this.yearBox = [];
