@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BroadcastService} from '../broadcast.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class DateBoxComponent implements OnInit {
   year: number;
   month: number;
   date: number;
-  day: number;
   dateTime = {  // 传入day-box
     year: this.year,
     month: this.month,
@@ -22,6 +21,21 @@ export class DateBoxComponent implements OnInit {
   yearBoxStatus = false;
   monthBoxStatus = false;
 
+  @Input() set selectValue(val) {
+    if (val) {
+      this.year = val['year'];
+      this.month = val['month'] - 1;
+      this.date = val['date'];
+      if (!val['year'] || !val['month'] || !val['date']) {
+        this.dayTime = new Date();
+        this.year = this.dayTime.getFullYear();
+        this.month = this.dayTime.getMonth();
+        this.date = this.dayTime.getDate();
+      }
+      this.initDateTime();
+    }
+  }
+
   constructor(private broadcastService: BroadcastService) {
   }
 
@@ -31,12 +45,6 @@ export class DateBoxComponent implements OnInit {
       this.month = data['month'];
       this.date = data['date'];
     });
-    this.dayTime = new Date();
-    this.year = this.dayTime.getFullYear();
-    this.month = this.dayTime.getMonth();
-    this.date = this.dayTime.getDate();
-    this.day = this.dayTime.getDay();
-    this.initDateTime();
   }
 
   toggleYearBox(e?) { // 通过year-box设置年份

@@ -14,6 +14,7 @@ export class DayBoxComponent implements OnInit, OnDestroy {
   monthBox = [];
   lastMonthMax: number; // 上一个月最后一天日期
   currentDay: number; // 这个月第一天星期
+  chosen: string;
 
   @Input() set time(val) {
     if (val) {
@@ -22,6 +23,7 @@ export class DayBoxComponent implements OnInit, OnDestroy {
       this.year = year;
       this.month = month;
       this.date = date;
+      this.chosen = new Date(year, month, date).toDateString();
       this.initMaxMonthDate(this.year, this.month);
       this.initMinMonthDay(this.year, this.month);
     }
@@ -46,25 +48,48 @@ export class DayBoxComponent implements OnInit, OnDestroy {
       date: 0,
       month: month + 1,
       isToday: false,
-      isThisMonth: false
+      isThisMonth: false,
+      isChosen: false
     };
     let selectDay = '';
     for (let i = 1; i <= this.maxMonthDate; i++) { // 初始化当前月份
       selectDay = new Date(year, month, i).toDateString();
       if (today === selectDay) { // 判断选中的是否是今天
-        day = {
-          date: i,
-          isToday: true,
-          isThisMonth: true,
-          month: month + 1
-        };
+        if (this.chosen === selectDay) {
+          day = {
+            date: i,
+            isToday: true,
+            isThisMonth: true,
+            month: month + 1,
+            isChosen: true
+          };
+        } else {
+          day = {
+            date: i,
+            isToday: true,
+            isThisMonth: true,
+            month: month + 1,
+            isChosen: false
+          };
+        }
       } else {
-        day = {
-          date: i,
-          isToday: false,
-          isThisMonth: true,
-          month: month + 1
-        };
+        if (this.chosen === selectDay) {
+          day = {
+            date: i,
+            isToday: false,
+            isThisMonth: true,
+            month: month + 1,
+            isChosen: true
+          };
+        } else {
+          day = {
+            date: i,
+            isToday: false,
+            isThisMonth: true,
+            month: month + 1,
+            isChosen: false
+          };
+        }
       }
       this.monthBox.push(day);
     }

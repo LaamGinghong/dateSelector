@@ -4,8 +4,10 @@
         class="day-box-item"
         [style.backgroundColor]="item.isThisMonth?'rgba(0,0,0,.5)':'rgba(0, 0, 0, .2)'"
         (click)="selectDate(item,monthBox)">
-      <span [style.background-color]="item.isToday&&item.isThisMonth?'yellow':''"
-            [style.color]="item.isToday&&item.isThisMonth?'#333':'#fff'">{{item.date}}</span>
+      <div [style.backgroundColor]="item.isChosen?'red':''">
+        <span [style.background-color]="item.isToday&&item.isThisMonth?'yellow':''"
+              [style.color]="item.isToday&&item.isThisMonth?'#333':'#fff'">{{item.date}}</span>
+      </div>
     </li>
   </ul>
 </div>
