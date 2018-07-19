@@ -28,12 +28,7 @@ export class AppComponent implements OnInit {
     this.month = this.dayTime.getMonth();
     this.date = this.dayTime.getDate();
     this.day = this.dayTime.getDay();
-    this.dateTime = {
-      year: this.year,
-      month: this.month,
-      date: this.date,
-      day: this.day
-    };
+    this.initDateTime();
   }
 
   openYearBox() {
@@ -44,12 +39,7 @@ export class AppComponent implements OnInit {
     this.yearBoxStatus = !this.yearBoxStatus;
     if (e) {
       this.year = e;
-      this.dateTime = {
-        year: this.year,
-        month: this.month,
-        date: this.date,
-        day: this.day
-      };
+      this.initDateTime();
     }
   }
 
@@ -57,44 +47,61 @@ export class AppComponent implements OnInit {
     this.monthBoxStatus = !this.monthBoxStatus;
     if (e) {
       this.month = e - 1;
-      this.dateTime = {
-        year: this.year,
-        month: this.month,
-        date: this.date,
-        day: this.day
-      };
+      this.initDateTime();
     }
   }
 
   changeMonth(e) {
     if (e <= 12 && e) {
       this.month = e - 1;
-      this.dateTime = {
-        year: this.year,
-        month: this.month,
-        date: this.date,
-        day: this.day
-      };
     }
     if (e > 12) {
       this.month = 0;
       this.year++;
-      this.dateTime = {
-        year: this.year,
-        month: this.month,
-        date: this.date,
-        day: this.day
-      };
     }
     if (e <= 0) {
       this.month = 11;
       this.year--;
-      this.dateTime = {
-        year: this.year,
-        month: this.month,
-        date: this.date,
-        day: this.day
-      };
     }
+    this.initDateTime();
+  }
+
+  lastYear() {
+    this.year--;
+    this.initDateTime();
+  }
+
+  nextYear() {
+    this.year++;
+    this.initDateTime();
+  }
+
+  lastMonth() {
+    if (this.month) {
+      this.month--;
+    } else {
+      this.month = 11;
+      this.year--;
+    }
+    this.initDateTime();
+  }
+
+  nextMonth() {
+    if (this.month < 11) {
+      this.month++;
+    } else {
+      this.month = 0;
+      this.year++;
+    }
+    this.initDateTime();
+  }
+
+  initDateTime() {
+    this.dateTime = {
+      year: this.year,
+      month: this.month,
+      date: this.date,
+      day: this.day
+    };
   }
 }

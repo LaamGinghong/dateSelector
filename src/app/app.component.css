@@ -25,3 +25,7 @@
   margin-top: 10px;
   color: white;
 }
+
+.dateSelector-header-lastMonth, .dateSelector-header-lastYear, .dateSelector-header-nextMonth, .dateSelector-header-nextYear {
+  padding: 0 20px;
+}
