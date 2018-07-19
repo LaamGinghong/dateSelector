@@ -1,7 +1,11 @@
 <div id="day-box">
   <ul>
-    <li *ngFor="let item of monthBox" class="day-box-item" [style.backgroundColor]="item.isThisMonth?'rgba(0,0,0,.5)':'rgba(0, 0, 0, .2)'">
-      <span [style.background-color]="item.isToday?'yellow':''" [style.color]="item.isToday?'#333':'#fff'">{{item.date}}</span>
+    <li *ngFor="let item of monthBox"
+        class="day-box-item"
+        [style.backgroundColor]="item.isThisMonth?'rgba(0,0,0,.5)':'rgba(0, 0, 0, .2)'"
+        (click)="selectDate(item,monthBox)">
+      <span [style.background-color]="item.isToday&&item.isThisMonth?'yellow':''"
+            [style.color]="item.isToday&&item.isThisMonth?'#333':'#fff'">{{item.date}}</span>
     </li>
   </ul>
 </div>

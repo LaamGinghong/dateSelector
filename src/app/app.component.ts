@@ -65,4 +65,36 @@ export class AppComponent implements OnInit {
       };
     }
   }
+
+  changeMonth(e) {
+    if (e <= 12 && e) {
+      this.month = e - 1;
+      this.dateTime = {
+        year: this.year,
+        month: this.month,
+        date: this.date,
+        day: this.day
+      };
+    }
+    if (e > 12) {
+      this.month = 0;
+      this.year++;
+      this.dateTime = {
+        year: this.year,
+        month: this.month,
+        date: this.date,
+        day: this.day
+      };
+    }
+    if (e <= 0) {
+      this.month = 11;
+      this.year--;
+      this.dateTime = {
+        year: this.year,
+        month: this.month,
+        date: this.date,
+        day: this.day
+      };
+    }
+  }
 }

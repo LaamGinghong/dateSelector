@@ -9,6 +9,6 @@
   </div>
   <app-month-box [monthBox]="monthBox" *ngIf="monthBoxStatus" (toggleMonthBox)="toggleMonthBox($event)"></app-month-box>
   <app-year-box [year]="year" *ngIf="yearBoxStatus" (toggleYearBox)="toggleYearBox($event)"></app-year-box>
-  <app-day-box [time]="dateTime"></app-day-box>
+  <app-day-box [time]="dateTime" (changeMonth)="changeMonth($event)"></app-day-box>
 </div>
 
