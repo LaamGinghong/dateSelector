@@ -1,22 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { MonthBoxComponent } from './month-box/month-box.component';
-import { YearBoxComponent } from './year-box/year-box.component';
-import { DayBoxComponent } from './day-box/day-box.component';
+import {AppComponent} from './app.component';
+import {DateBoxModule} from './date-box/date-box.module';
+import {InputBoxModule} from './input-box/input-box.module';
+import {BroadcastService} from './broadcast.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MonthBoxComponent,
-    YearBoxComponent,
-    DayBoxComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DateBoxModule,
+    InputBoxModule
   ],
-  providers: [],
+  providers: [BroadcastService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

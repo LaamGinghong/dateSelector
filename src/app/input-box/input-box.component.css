@@ -1,0 +1,25 @@
+#Input-box {
+  width: 100vw;
+}
+
+#input-box > div {
+  width: 600px;
+  height: 40px;
+  margin: 30px auto;
+  position: relative;
+}
+
+#input-box>div>input{
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#input-box>div>span{
+  right: 8px;
+  top: 8px;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+}

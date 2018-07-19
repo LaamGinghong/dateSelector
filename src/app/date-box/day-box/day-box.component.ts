@@ -1,15 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, OnDestroy} from '@angular/core';
+import {BroadcastService} from '../../broadcast.service';
 
 @Component({
   selector: 'app-day-box',
   templateUrl: './day-box.component.html',
   styleUrls: ['./day-box.component.css']
 })
-export class DayBoxComponent implements OnInit {
+export class DayBoxComponent implements OnInit, OnDestroy {
   year: number;
   month: number;
   date: number;
-  day: number;
   maxMonthDate: number; // 当前月份最后一天日期
   monthBox = [];
   lastMonthMax: number; // 上一个月最后一天日期
@@ -18,11 +18,10 @@ export class DayBoxComponent implements OnInit {
   @Input() set time(val) {
     if (val) {
       this.monthBox = [];
-      const {year, month, date, day} = val;
+      const {year, month, date} = val;
       this.year = year;
       this.month = month;
       this.date = date;
-      this.day = day;
       this.initMaxMonthDate(this.year, this.month);
       this.initMinMonthDay(this.year, this.month);
     }
@@ -31,10 +30,13 @@ export class DayBoxComponent implements OnInit {
   @Output() changeMonth = new EventEmitter<number>();
 
 
-  constructor() {
+  constructor(private broadcastService: BroadcastService) {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
   }
 
   initMaxMonthDate(year, month) { // 初始化月份
@@ -94,6 +96,7 @@ export class DayBoxComponent implements OnInit {
 
   selectDate(date: { date: number, isToday: boolean, isThisMonth: boolean, month: number }, box: Array<{ date: number, isToday: boolean, isThisMonth: boolean, month: number }>) {
     if (date.isThisMonth) { // 选择日期
+      this.broadcastService.broadcastDate({year: this.year, month: date.month, date: date.date, status: false});
       box.forEach(item => {
         item.isToday = item.date === date.date ? true : false;
       });

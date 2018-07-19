@@ -1,0 +1,32 @@
+#dateSelector {
+  width: 500px;
+  height: 340px;
+  background: green;
+  border: 4px solid darkgreen;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+#dateSelector-header {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.dateSelector-week-item {
+  float: left;
+  width: 14.28%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, .2);
+  margin-top: 10px;
+  color: white;
+}
+
+.dateSelector-header-lastMonth, .dateSelector-header-lastYear, .dateSelector-header-nextMonth, .dateSelector-header-nextYear {
+  padding: 0 20px;
+}
