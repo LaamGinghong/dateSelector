@@ -1,27 +1,40 @@
-# DataSelector
+# DateSelector 日期选择器 [日期选择器](https://laamginghong.github.io/dateSelector/dist/dataSelector/index.html)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
+该项目基于Angular 6.0.8
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Development server 本地开发服务器
 
-## Code scaffolding
+Run `ng serve or npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+打开终端运行`ng serve`或者`npm start`来启动本地开发服务器，服务器地址是`http://localhost:4200/`
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Menu 项目目录结构
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    |--src
+       |--app(页面组件)
+          |--date-box(日历模块)
+             |--day-box(日历组件)
+             |--month-box(选择月份组件)
+             |--year-box(选择年份组件)
+             |--date-box.component.css(日历模块样式)
+             |--date-box.component.html(日历模块样式)
+             |--date-box.compoennt.ts(日历模块组件)
+             |--date-box.module.ts(日历模块)
+          |--input-box(输入框模块)
+             |--input-box.component.css(输入框模块样式)
+             |--input-box.component.html(输入框模块夜眠)
+             |--input-box.component.ts(输入框模块组件)
+             |--input-box.module.ts(输入框模块)
+          |--app.component.css(根组件样式)
+          |--app.component.html(根组件页面)
+          |--app.component.ts(根组件脚本)
+          |--app.module.ts(根组件模块)
+          |--broadcast.service.ts(广播服务)
+       |--assets(静态资源)
+       |--environments(环境配置)
