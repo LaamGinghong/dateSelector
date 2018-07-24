@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-该项目基于Angular 6.0.8
+该项目基于[Angular](https://github.com/angular/angular-cli) 6.0.8
 
 ## Development server 本地开发服务器
 
