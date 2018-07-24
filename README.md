@@ -10,9 +10,9 @@ Run `ng serve or npm start` for a dev server. Navigate to `http://localhost:4200
 
 打开终端运行`ng serve`或者`npm start`来启动本地开发服务器，服务器地址是`http://localhost:4200/`
 
-## Build
+## Build 打包
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. 
 
 ## Menu 项目目录结构
 
